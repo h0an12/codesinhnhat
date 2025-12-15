@@ -1,0 +1,3281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHÚC MỪNG SINH NHẬT</title>
+    <h1>tre</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== RESET & VARIABLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #ffcce6;
+            --pink-medium: #ff66a3;
+            --pink-dark: #ff0066;
+            --pink-pastel: #ffcce0;
+            --yellow-light: #fff9e6;
+            --blue-light: #cce6ff;
+            --purple-light: #e6ccff;
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--yellow-light) 50%, var(--pink-pastel) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #333;
+            position: relative;
+        }
+
+        /* ==================== NEON GRID BACKGROUND ==================== */
+        .neon-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(50px) translateX(50px); }
+        }
+
+        /* ==================== HIỆU ỨNG XOAY VÒNG ==================== */
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Hiệu ứng xoay tròn khi chuyển slide */
+        @keyframes slideRotateIn {
+            0% {
+                transform: rotateY(-180deg) scale(0.3);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            100% {
+                transform: rotateY(0) scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        @keyframes slideRotateOut {
+            0% {
+                transform: rotateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: rotateY(180deg) scale(0.3);
+                opacity: 0;
+                filter: blur(20px);
+            }
+        }
+
+        /* Hiệu ứng xoay lốc xoáy */
+        @keyframes spiralRotateIn {
+            0% {
+                transform: rotate(-720deg) scale(0) translateX(-100%);
+                opacity: 0;
+            }
+            70% {
+                transform: rotate(0) scale(1.2) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(0) scale(1) translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes spiralRotateOut {
+            0% {
+                transform: rotate(0) scale(1) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(720deg) scale(0) translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Hiệu ứng tan biến từ trái sang phải */
+        @keyframes fadeSlideLeftToRight {
+            0% {
+                transform: translateX(-100%) scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: translateX(100%) scale(0.5);
+                opacity: 0;
+                filter: blur(20px);
+            }
+        }
+
+        @keyframes fadeSlideRightToLeft {
+            0% {
+                transform: translateX(100%) scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: translateX(-100%) scale(0.5);
+                opacity: 0;
+                filter: blur(20px);
+            }
+        }
+
+        /* Hiệu ứng xuất hiện từ phải sang trái */
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%) rotateY(90deg);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            100% {
+                transform: translateX(0) rotateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%) rotateY(-90deg);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            100% {
+                transform: translateX(0) rotateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        /* Hiệu ứng xoay như bánh xe */
+        @keyframes wheelRotateIn {
+            0% {
+                transform: rotate(-360deg) translateX(-150%) scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: rotate(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes wheelRotateOut {
+            0% {
+                transform: rotate(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(360deg) translateX(150%) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Hiệu ứng lượn sóng */
+        @keyframes waveEffectIn {
+            0% {
+                transform: translateX(-100%) translateY(100px) rotate(-45deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes waveEffectOut {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Class hiệu ứng */
+        .slide-rotate-in {
+            animation: slideRotateIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .slide-rotate-out {
+            animation: slideRotateOut 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+        }
+
+        .slide-spiral-in {
+            animation: spiralRotateIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .slide-spiral-out {
+            animation: spiralRotateOut 1.2s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+        }
+
+        .slide-fade-ltr {
+            animation: fadeSlideLeftToRight 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+        }
+
+        .slide-fade-rtl {
+            animation: fadeSlideRightToLeft 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInFromLeft 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .slide-wheel-in {
+            animation: wheelRotateIn 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .slide-wheel-out {
+            animation: wheelRotateOut 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+        }
+
+        .slide-wave-in {
+            animation: waveEffectIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .slide-wave-out {
+            animation: waveEffectOut 1.2s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+        }
+
+        /* Container 3D */
+        .carousel-track-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 500px;
+            perspective: 1500px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        /* ==================== INTRO SCREEN ==================== */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 102, 0.9) 0%, 
+                rgba(255, 102, 163, 0.9) 50%, 
+                rgba(255, 204, 0, 0.9) 100%),
+                url('https://haycafe.vn/wp-content/uploads/2021/11/Anh-cung-Nhan-Ma.jpg');
+            background-size: cover;
+            background-blend-mode: overlay;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s ease, transform 1s ease;
+            overflow: hidden;
+        }
+
+        #intro-screen::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 20%, rgba(255,255,255,0.1) 20%);
+            background-size: 50px 50px;
+            animation: floatParticles 20s linear infinite;
+        }
+
+        @keyframes floatParticles {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+
+        #intro-screen h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 
+                0 0 10px var(--neon-pink),
+                0 0 20px var(--neon-pink),
+                0 0 30px var(--neon-pink),
+                0 0 40px var(--neon-pink);
+            margin-bottom: 30px;
+            animation: 
+                pulse 2s infinite,
+                neonGlow 3s infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes neonGlow {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px var(--neon-pink),
+                    0 0 20px var(--neon-pink),
+                    0 0 30px var(--neon-pink);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 20px var(--neon-blue),
+                    0 0 30px var(--neon-blue),
+                    0 0 40px var(--neon-blue);
+            }
+        }
+
+        #name-input-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 255, 0.3),
+                inset 0 0 50px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #name-input-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, 
+                var(--neon-pink), 
+                var(--neon-blue), 
+                var(--neon-yellow));
+            border-radius: 35px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+
+        #name-input {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5rem;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s;
+            background: linear-gradient(white, white) padding-box,
+                      linear-gradient(45deg, var(--pink-dark), var(--pink-medium)) border-box;
+        }
+
+        #name-input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.5);
+            transform: scale(1.05);
+        }
+
+        .theme-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .theme-color {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.3),
+                0 0 20px rgba(255,255,255,0.5);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-color::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 70%);
+        }
+
+        .theme-color:hover {
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        .theme-color.active {
+            transform: scale(1.1);
+            box-shadow: 
+                0 0 30px currentColor,
+                inset 0 0 20px rgba(255,255,255,0.5);
+            border: 3px solid gold;
+        }
+
+        #theme-pink { 
+            background: linear-gradient(135deg, #ff0066, #ff66a3);
+            color: #ff0066;
+        }
+        #theme-purple { 
+            background: linear-gradient(135deg, #9966ff, #cc99ff);
+            color: #9966ff;
+        }
+        #theme-blue { 
+            background: linear-gradient(135deg, #00ccff, #66ccff);
+            color: #00ccff;
+        }
+        #theme-gold { 
+            background: linear-gradient(135deg, #ffcc00, #ff9966);
+            color: #ffcc00;
+        }
+        #theme-neon { 
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            color: #ff00ff;
+            animation: neonPulse 2s infinite;
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        #start-btn {
+            background: linear-gradient(45deg, var(--pink-dark), var(--pink-medium));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Pacifico', cursive;
+            box-shadow: 
+                0 10px 20px rgba(255, 0, 102, 0.3),
+                0 0 30px rgba(255, 0, 102, 0.5);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #start-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        #start-btn:hover::before {
+            left: 100%;
+        }
+
+        #start-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 30px rgba(255, 0, 102, 0.4),
+                0 0 40px rgba(255, 0, 102, 0.6);
+        }
+
+        /* ==================== MAIN CONTAINER ==================== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: none;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: var(--pink-dark);
+            text-shadow: 2px 2px 0 var(--pink-light), 4px 4px 0 rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--pink-medium);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ==================== COUNTDOWN SECTION ==================== */
+        .countdown-section {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(255, 102, 163, 0.2);
+            backdrop-filter: blur(10px);
+            transition: opacity 0.5s ease;
+        }
+
+        .countdown-section.hidden {
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .countdown-title {
+            font-size: 2rem;
+            color: var(--pink-dark);
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: linear-gradient(145deg, var(--pink-medium), var(--pink-dark));
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(255, 102, 163, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(255, 102, 163, 0.4);
+        }
+
+        .countdown-value {
+            font-size: 2.8rem;
+            font-weight: bold;
+            line-height: 1;
+            font-family: 'Comic Neue', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ==================== IMAGE SHOWCASE SECTION ==================== */
+        .image-showcase-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 1200px;
+            text-align: center;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-showcase-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .image-showcase-section.hide {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        .showcase-header {
+            margin-bottom: 40px;
+        }
+
+        .showcase-header h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.2rem;
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(45deg, var(--pink-dark), var(--pink-medium), var(--pink-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .showcase-header p {
+            font-size: 1.4rem;
+            color: var(--pink-medium);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 50px rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+
+        .carousel-track-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 500px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+            height: 100%;
+        }
+
+        /* Ken Burns Effect */
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.15) translate(20px, 20px);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            animation: kenBurns 20s infinite alternate ease-in-out;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .carousel-slide:hover .slide-image {
+            filter: brightness(1);
+            animation-play-state: paused;
+        }
+
+        /* Ẩn phần chữ trong ảnh */
+        .slide-overlay {
+            display: none !important;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--pink-dark), var(--pink-medium));
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+            box-shadow: 
+                0 8px 25px rgba(255, 0, 102, 0.3),
+                0 0 0 2px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 
+                0 15px 35px rgba(255, 0, 102, 0.4),
+                0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        /* Dots Indicator */
+        .carousel-dots {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 0, 102, 0.3);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .dot:hover {
+            transform: scale(1.2);
+            background: var(--pink-medium);
+        }
+
+        .dot.active {
+            background: var(--pink-dark);
+            transform: scale(1.3);
+            box-shadow: 
+                0 0 20px var(--pink-medium),
+                0 0 30px rgba(255, 0, 102, 0.3);
+            border-color: white;
+        }
+
+        .dot.active::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            font-family: 'Comic Neue', cursive;
+            font-weight: bold;
+            color: var(--pink-dark);
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            text-align: center;
+            border: 2px solid var(--pink-light);
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, var(--pink-medium), var(--pink-light));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(255, 0, 102, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .view-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .view-btn:hover::before {
+            left: 100%;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 102, 0.3);
+        }
+
+        .view-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* Grid View Styles */
+        .grid-container {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            perspective: 1000px;
+        }
+
+        .grid-container.active {
+            display: grid;
+            animation: gridAppear 0.6s ease-out;
+        }
+
+        @keyframes gridAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .grid-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            transform-style: preserve-3d;
+            height: 300px;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-15px) rotateX(5deg) scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                0 0 0 2px rgba(255, 0, 102, 0.1),
+                0 0 40px rgba(255, 0, 102, 0.2);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Ẩn phần chữ trong grid */
+        .grid-overlay {
+            display: none !important;
+        }
+
+        /* Auto Progress Bar */
+        .auto-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 0, 102, 0.1);
+            border-radius: 3px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--pink-light), var(--pink-dark));
+            border-radius: 3px;
+            transition: width 0.1s linear;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Timer Display */
+        .timer-display {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 0, 102, 0.1), rgba(255, 102, 163, 0.1));
+            border-radius: 15px;
+            border: 2px dashed var(--pink-medium);
+        }
+
+        .timer-display p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--pink-dark);
+            font-family: 'Comic Neue', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: pulseTimer 1s infinite alternate;
+        }
+
+        @keyframes pulseTimer {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* Floating Particles Background */
+        .image-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--pink-medium);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: floatParticle 15s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== CAKE SECTION ==================== */
+        .cake-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: center;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cake-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .real-cake-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.5s;
+            margin-bottom: 30px;
+        }
+
+        .real-cake-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .cake-instruction {
+            font-size: 1.3rem;
+            color: var(--pink-dark);
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 20px;
+        }
+
+        /* Ẩn nút tiếp tục ước nguyện */
+        #next-after-cake {
+            display: none !important;
+        }
+
+        /* ==================== WISH SECTION ==================== */
+        .wish-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 
+                0 0 50px rgba(255, 0, 255, 0.5),
+                inset 0 0 50px rgba(0, 0, 0, 0.5);
+            display: none;
+            text-align: center;
+        }
+
+        .wish-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .wish-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                var(--neon-pink), 
+                var(--neon-blue), 
+                var(--neon-green),
+                var(--neon-yellow));
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderRotate 5s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .wish-ball {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(173, 216, 230, 0.6) 30%,
+                rgba(70, 130, 180, 0.4) 70%,
+                transparent 100%);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(0, 0, 0, 0.8),
+                0 0 60px rgba(0, 200, 255, 0.8);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .wish-ball:hover {
+            transform: scale(1.1);
+        }
+
+        .wish-ball::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle at 40% 40%, 
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 50%);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .wish-ball-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle at 40% 40%, 
+                rgba(0, 255, 255, 0.3) 0%,
+                rgba(0, 100, 255, 0.1) 50%,
+                transparent 70%);
+            border-radius: 50%;
+            animation: ballGlow 3s infinite alternate;
+        }
+
+        @keyframes ballGlow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
+            100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .wish-instruction {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ==================== TIME CAPSULE SECTION ==================== */
+        .time-capsule-section {
+            background: linear-gradient(135deg, 
+                rgba(139, 69, 19, 0.9) 0%,
+                rgba(160, 82, 45, 0.9) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                inset 0 0 100px rgba(0,0,0,0.5);
+            border: 5px solid #8B4513;
+            display: none;
+        }
+
+        .time-capsule-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .time-capsule {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, 
+                #D2691E 0%,
+                #8B4513 30%,
+                #A0522D 70%,
+                #D2691E 100%);
+            margin: 0 auto;
+            border-radius: 20px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.5s;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.5),
+                inset 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        .time-capsule:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        .capsule-lid {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 40px;
+            background: linear-gradient(135deg, 
+                #A0522D 0%,
+                #8B4513 100%);
+            border-radius: 40px 40px 10px 10px;
+            border-bottom: 10px solid #5D4037;
+        }
+
+        .capsule-body {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(135deg, 
+                #A0522D 0%,
+                #8B4513 50%,
+                #5D4037 100%);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .capsule-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: gold;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        .capsule-lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, gold 30%, #FFD700 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #8B4513;
+            box-shadow: 
+                0 0 20px gold,
+                inset 0 0 10px rgba(255, 215, 0, 0.5);
+            animation: lockPulse 2s infinite;
+        }
+
+        @keyframes lockPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* ==================== IMAGE MODAL ==================== */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.7);
+            transition: transform 0.5s ease;
+        }
+
+        .image-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            background: var(--pink-dark);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--pink-medium);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .image-caption {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--pink-dark);
+            margin-top: 50px;
+            border-top: 2px dashed var(--pink-medium);
+            font-size: 1.2rem;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        /* ==================== CONTINUE BUTTON ==================== */
+        .continue-btn {
+            background: linear-gradient(45deg, var(--pink-dark), var(--pink-medium));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Pacifico', cursive;
+            box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3);
+            transition: all 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 102, 0.4);
+        }
+
+        /* ==================== HEART EFFECT ==================== */
+        .heart {
+            position: fixed;
+            font-size: 24px;
+            color: var(--pink-dark);
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== FIREWORKS CANVAS ==================== */
+        #fireworks-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-20px); display: none; }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .carousel-container {
+                max-width: 800px;
+            }
+            
+            .carousel-track-container {
+                height: 400px;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            #intro-screen h1 {
+                font-size: 2.8rem;
+                text-align: center;
+            }
+            
+            .wish-section,
+            .time-capsule-section,
+            .cake-section,
+            .image-showcase-section {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            
+            .wish-ball {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .time-capsule {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .countdown-box {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+            
+            .carousel-container {
+                padding: 10px;
+            }
+            
+            .carousel-track-container {
+                height: 350px;
+            }
+            
+            .carousel-nav {
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .slide-desc {
+                font-size: 1rem;
+            }
+            
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .grid-item {
+                height: 250px;
+            }
+            
+            .timer {
+                font-size: 2.5rem;
+                padding: 8px 20px;
+            }
+            
+            .real-cake-image {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .showcase-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-track-container {
+                height: 300px;
+            }
+            
+            .carousel-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .carousel-dots {
+                order: 3;
+                margin-top: 15px;
+            }
+            
+            .slide-counter {
+                order: 2;
+            }
+            
+            .nav-btn {
+                order: 1;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .view-toggle {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .view-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .timer {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hiệu ứng nền grid -->
+    <div class="neon-grid"></div>
+
+    <!-- Modal xem ảnh lớn -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <img class="modal-image" id="modal-image" src="" alt="Ảnh lớn">
+            <div class="image-caption" id="image-caption"></div>
+        </div>
+    </div>
+
+    <!-- Màn hình intro -->
+    <div id="intro-screen">
+        <h1>🎂 HAPPY BIRTHDAY 🎉</h1>
+        <div id="name-input-container">
+            <h2>✨ Dành tặng cho ai vậy? ✨</h2>
+            <input type="text" id="name-input" placeholder="Nhập tên người được chúc...">
+            
+            <h3>🎨 Chọn chủ đề yêu thích:</h3>
+            <div class="theme-selector">
+                <div class="theme-color active" id="theme-pink" data-theme="pink"></div>
+                <div class="theme-color" id="theme-purple" data-theme="purple"></div>
+                <div class="theme-color" id="theme-blue" data-theme="blue"></div>
+                <div class="theme-color" id="theme-gold" data-theme="gold"></div>
+                <div class="theme-color" id="theme-neon" data-theme="neon"></div>
+            </div>
+            
+            <button id="start-btn">Khởi động 🚀</button>
+        </div>
+    </div>
+
+    <!-- Container chính -->
+    <div class="container" id="main-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title" id="personalized-title">Sinh Nhật Của Bạn</h1>
+            <p class="subtitle">Chúc bạn có một ngày sinh nhật thật tuyệt vời!</p>
+        </header>
+
+        <!-- Đồng hồ đếm ngược đặc biệt -->
+        <section class="countdown-section" id="countdown-section">
+            <h2 class="countdown-title">⏰ Đếm ngược đến thời khắc đặc biệt ⏰</h2>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div class="countdown-value" id="countdown-hours">23</div>
+                    <div class="countdown-label">Giờ</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-value" id="countdown-minutes">59</div>
+                    <div class="countdown-label">Phút</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-value" id="countdown-seconds">55</div>
+                    <div class="countdown-label">Giây</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần hiển thị ảnh kỉ niệm với hiệu ứng xoay vòng -->
+        <section class="image-showcase-section" id="image-showcase-section">
+            <div class="showcase-header">
+                <h2>✨ Khoảnh Khắc Đáng Nhớ ✨</h2>
+                <p>Những hình ảnh tuyệt vời nhất dành tặng cho bạn!</p>
+            </div>
+
+            <!-- Carousel View -->
+            <div class="carousel-container" id="carousel-container">
+                <!-- Floating Particles Background -->
+                <div class="image-particles" id="image-particles"></div>
+                
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Slides will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Auto Progress Bar -->
+                <div class="auto-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="carousel-nav">
+                    <button class="nav-btn" id="prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="carousel-dots" id="carousel-dots">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="slide-counter" id="slide-counter">
+                        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+                    </div>
+                    
+                    <button class="nav-btn" id="next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div class="grid-container" id="grid-container">
+                <!-- Grid items will be generated by JavaScript -->
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-btn" id="grid-view-btn">
+                    <i class="fas fa-th"></i> Xem Dạng Lưới
+                </button>
+                <button class="view-btn" id="carousel-view-btn" style="display: none;">
+                    <i class="fas fa-sliders-h"></i> Xem Dạng Trình Chiếu
+                </button>
+                <button class="view-btn" id="auto-play-btn">
+                    <i class="fas fa-play"></i> Tự Động Trình Chiếu
+                </button>
+                <!-- Nút đổi hiệu ứng -->
+                <button class="view-btn" id="change-effect-btn">
+                    <i class="fas fa-random"></i> Đổi Hiệu Ứng
+                </button>
+            </div>
+
+            <!-- Timer Display -->
+            <div class="timer-display">
+                <p>Chuyển sang bánh sinh nhật sau:</p>
+                <div class="timer" id="countdown-timer">10</div>
+                <p style="font-size: 1.2rem; margin-top: 10px;">Click vào ảnh để xem chi tiết</p>
+            </div>
+        </section>
+
+        <!-- Phần bánh sinh nhật với ảnh thực -->
+        <section class="cake-section" id="cake-section">
+            <h2 class="countdown-title">🎂 Bánh Sinh Nhật Đặc Biệt 🎂</h2>
+            <p class="cake-instruction">Đây là chiếc bánh sinh nhật dành riêng cho bạn!</p>
+            <!-- Ảnh bánh sinh nhật thực tế -->
+            <img src="img/cake.gif" alt="Bánh sinh nhật" class="real-cake-image" id="real-cake">
+            <p class="cake-instruction">Click vào bánh để thắp nến và bắt đầu bữa tiệc!</p>
+            <!-- Nút tiếp tục đã bị ẩn bằng CSS -->
+            <button class="continue-btn" id="next-after-cake" style="display: none;">Tiếp tục ước nguyện ✨</button>
+        </section>
+
+        <!-- Quả cầu ước nguyện -->
+        <section class="wish-section" id="wish-section">
+            <h2 class="countdown-title">🔮 Quả Cầu Ước Nguyện 🔮</h2>
+            <p class="wish-instruction">Hãy chạm vào quả cầu và ước một điều ước trong ngày sinh nhật!</p>
+            <div class="wish-ball" id="wish-ball">
+                <div class="wish-ball-inner"></div>
+            </div>
+            <p class="wish-instruction" id="wish-text" style="display: none; color: var(--neon-green); font-size: 1.5rem; margin-top: 20px;">
+                Điều ước của bạn sẽ thành hiện thực! ✨
+            </p>
+            <button class="continue-btn" id="next-after-wish" style="display: none; margin: 20px auto 0; background: var(--neon-blue);">
+                Mở lá thư bí mật 💌
+            </button>
+        </section>
+
+        <!-- Virtual Time Capsule (Lá thư bí mật) -->
+        <section class="time-capsule-section" id="time-capsule-section">
+            <h2 class="countdown-title" style="color: gold;">💌 Lời Chúc Đặc Biệt 💌</h2>
+            <p style="text-align: center; color: #FFD700; margin-bottom: 30px; font-size: 1.2rem;">
+                Những lời chúc tốt đẹp nhất dành cho bạn trong tuổi mới!
+            </p>
+            <div class="time-capsule" id="time-capsule">
+                <div class="capsule-lid"></div>
+                <div class="capsule-body">
+                    <div class="capsule-content">
+                        <h3 style="color: gold; margin-bottom: 15px;">Lời Chúc Cho <span id="capsule-name">bạn</span> ❤️</h3>
+                        <div id="wish-messages" style="text-align: left; color: white; font-size: 1.1rem; line-height: 1.5;">
+                            <!-- Lời chúc sẽ được thêm bằng JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="capsule-lock" id="capsule-lock">🎁</div>
+            </div>
+            <p style="text-align: center; color: #FFD700; margin-top: 30px; font-size: 1.1rem;">
+                Click vào hộp thư để mở những lời chúc đặc biệt!
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HAPPY BIRTHDAY</p>
+            <p>Được tạo với <i class="fas fa-heart" style="color: var(--pink-dark);"></i> dành tặng bạn</p>
+            <p>Chúc bạn có một ngày sinh nhật thật tuyệt vời và đáng nhớ!</p>
+        </footer>
+    </div>
+
+    <!-- Canvas cho hiệu ứng -->
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- Audio -->
+    <audio id="fireworks-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-fireworks-show-audio-3061.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="confetti-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="candle-blow-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-wind-whistling-1506.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="magic-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkle-300.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clock-tick-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-clock-ticking-close-up-1000.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ==================== BIẾN TOÀN CỤC ====================
+        let userName = "";
+        let selectedTheme = "pink";
+        let imageShowcaseTimer = 10;
+        let imageCountdownInterval;
+        let currentSlideIndex = 0;
+        let autoSlideInterval = null;
+        let isAutoPlay = true;
+        let isGridView = false;
+        let isAnimating = false;
+        let slideTimer = 0;
+        const totalAutoTime = 10;
+        const slideChangeTime = 3;
+        
+        // Hiệu ứng hiện tại
+        let currentEffect = {
+            name: "Xoay Vòng",
+            in: "slide-rotate-in",
+            out: "slide-rotate-out"
+        };
+        
+        // Danh sách hiệu ứng
+        const effects = [
+            {
+                name: "Xoay Vòng",
+                in: "slide-rotate-in",
+                out: "slide-rotate-out"
+            },
+            {
+                name: "Lốc Xoáy",
+                in: "slide-spiral-in",
+                out: "slide-spiral-out"
+            },
+            {
+                name: "Tan Biến Trái-Phải",
+                in: "slide-in-right",
+                out: "slide-fade-ltr"
+            },
+            {
+                name: "Tan Biến Phải-Trái",
+                in: "slide-in-left",
+                out: "slide-fade-rtl"
+            },
+            {
+                name: "Xoay Bánh Xe",
+                in: "slide-wheel-in",
+                out: "slide-wheel-out"
+            },
+            {
+                name: "Lượn Sóng",
+                in: "slide-wave-in",
+                out: "slide-wave-out"
+            }
+        ];
+
+        // ==================== DỮ LIỆU ẢNH ====================
+        const imageData = [
+            {
+                src: "img/anh1.jpg",
+                title: "Kỷ Niệm Đầu Tiên",
+                desc: "Khoảnh khắc đầu tiên chúng ta gặp nhau, nụ cười rạng rỡ và những cảm xúc đáng nhớ.",
+                date: "Ngày đáng nhớ"
+            },
+            {
+                src: "img/anh2.jpg",
+                title: "Buổi Tiệc Bất Ngờ",
+                desc: "Bữa tiệc sinh nhật bất ngờ với những người bạn thân thiết nhất.",
+                date: "Ngày vui vẻ"
+            },
+            {
+                src: "img/anh3.jpg",
+                title: "Chuyến Đi Hạnh Phúc",
+                desc: "Chuyến đi cùng nhau đến những nơi đẹp nhất, tạo nên kỷ niệm khó quên.",
+                date: "Ngày hạnh phúc"
+            },
+            {
+                src: "img/anh4.jpg",
+                title: "Khoảnh Khắc Tự Nhiên",
+                desc: "Những khoảnh khắc đời thường nhưng đầy ấm áp và chân thành.",
+                date: "Ngày bình yên"
+            },
+            {
+                src: "img/anh5.jpg",
+                title: "Lễ Kỷ Niệm",
+                desc: "Buổi lễ kỷ niệm với những bông hoa tươi thắm và lời chúc tốt đẹp.",
+                date: "Ngày kỷ niệm"
+            },
+            {
+                src: "img/anh6.jpg",
+                title: "Giây Phút Vui Vẻ",
+                desc: "Tiếng cười giòn tan và những trò chơi thú vị bên nhau.",
+                date: "Ngày vui"
+            },
+            {
+                src: "img/anh7.jpg",
+                title: "Bữa Tối Ấm Cúng",
+                desc: "Bữa tối ấm cúng với những món ăn ngon và câu chuyện thú vị.",
+                date: "Ngày ấm áp"
+            },
+            {
+                src: "img/anh8.jpg",
+                title: "Chuyến Phiêu Lưu",
+                desc: "Khám phá những điều mới mẻ và thú vị cùng nhau.",
+                date: "Ngày mạo hiểm"
+            },
+            {
+                src: "img/anh9.jpg",
+                title: "Khoảnh Khắc Tuyệt Vời",
+                desc: "Tổng hợp những khoảnh khắc đẹp nhất trong năm qua.",
+                date: "Ngày tuyệt vời"
+            }
+        ];
+
+        // ==================== KHỞI TẠO ====================
+        const introScreen = document.getElementById('intro-screen');
+        const mainContainer = document.getElementById('main-container');
+        const nameInput = document.getElementById('name-input');
+        const startBtn = document.getElementById('start-btn');
+        const personalizedTitle = document.getElementById('personalized-title');
+
+        // ==================== EVENT LISTENERS ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme selector
+            document.querySelectorAll('.theme-color').forEach(color => {
+                color.addEventListener('click', function() {
+                    selectedTheme = this.getAttribute('data-theme');
+                    document.querySelectorAll('.theme-color').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    applyTheme(selectedTheme);
+                });
+            });
+
+            // Start button
+            startBtn.addEventListener('click', startApp);
+            
+            // Thêm enter để bắt đầu
+            nameInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    startApp();
+                }
+            });
+        });
+
+        // ==================== HÀM CHÍNH ====================
+        function startApp() {
+            userName = nameInput.value.trim();
+            if (userName === "") {
+                userName = "bạn";
+            }
+            
+            // Cập nhật tiêu đề
+            personalizedTitle.textContent = `Sinh Nhật Của ${userName}`;
+            document.getElementById('capsule-name').textContent = userName;
+            
+            // Áp dụng theme
+            applyTheme(selectedTheme);
+            
+            // Ẩn intro screen với hiệu ứng
+            introScreen.style.opacity = '0';
+            introScreen.style.transform = 'scale(1.1) translateY(-50px)';
+            
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+                mainContainer.style.display = 'block';
+                
+                // Bắt đầu đếm ngược đặc biệt
+                startSpecialCountdown();
+                
+                // Khởi tạo các phần khác
+                initImageShowcase();
+                initializeCakeSection();
+                
+                // Khởi tạo modal
+                initializeModal();
+                
+                // Khởi tạo Quả cầu ước nguyện và Time Capsule
+                initializeWishBall();
+                initializeTimeCapsule();
+            }, 1000);
+        }
+
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            
+            switch(theme) {
+                case 'purple':
+                    root.style.setProperty('--pink-light', '#e6ccff');
+                    root.style.setProperty('--pink-medium', '#9966ff');
+                    root.style.setProperty('--pink-dark', '#6600cc');
+                    root.style.setProperty('--pink-pastel', '#ccb3ff');
+                    root.style.setProperty('--neon-pink', '#cc00ff');
+                    break;
+                case 'blue':
+                    root.style.setProperty('--pink-light', '#cce6ff');
+                    root.style.setProperty('--pink-medium', '#66b3ff');
+                    root.style.setProperty('--pink-dark', '#0066cc');
+                    root.style.setProperty('--pink-pastel', '#b3d9ff');
+                    root.style.setProperty('--neon-pink', '#0066ff');
+                    break;
+                case 'gold':
+                    root.style.setProperty('--pink-light', '#fff0cc');
+                    root.style.setProperty('--pink-medium', '#ffcc66');
+                    root.style.setProperty('--pink-dark', '#ff9900');
+                    root.style.setProperty('--pink-pastel', '#ffe6b3');
+                    root.style.setProperty('--neon-pink', '#ffcc00');
+                    break;
+                case 'neon':
+                    root.style.setProperty('--pink-light', '#ffccff');
+                    root.style.setProperty('--pink-medium', '#ff66ff');
+                    root.style.setProperty('--pink-dark', '#ff00ff');
+                    root.style.setProperty('--pink-pastel', '#ffccff');
+                    break;
+                default: // pink
+                    root.style.setProperty('--pink-light', '#ffcce6');
+                    root.style.setProperty('--pink-medium', '#ff66a3');
+                    root.style.setProperty('--pink-dark', '#ff0066');
+                    root.style.setProperty('--pink-pastel', '#ffcce0');
+                    root.style.setProperty('--neon-pink', '#ff00ff');
+            }
+        }
+
+        // ==================== ĐỒNG HỒ ĐẾM NGƯỢC ====================
+        function startSpecialCountdown() {
+            let hours = 23;
+            let minutes = 59;
+            let seconds = 55;
+            
+            updateCountdownDisplay(hours, minutes, seconds);
+            
+            const tickSound = document.getElementById('clock-tick-sound');
+            tickSound.loop = true;
+            tickSound.play().catch(e => console.log("Âm thanh tick tock không thể phát tự động"));
+            
+            const countdownInterval = setInterval(() => {
+                seconds++;
+                
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++;
+                    
+                    if (minutes >= 60) {
+                        minutes = 0;
+                        hours++;
+                        
+                        if (hours >= 24) {
+                            hours = 0;
+                        }
+                    }
+                }
+                
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    clearInterval(countdownInterval);
+                    tickSound.pause();
+                    tickSound.currentTime = 0;
+                    
+                    // Thêm hiệu ứng kết thúc
+                    const countdownSection = document.getElementById('countdown-section');
+                    countdownSection.innerHTML = `
+                        <h2 style="color: var(--pink-dark); font-size: 2.5rem; text-align: center;">
+                            🎉 ĐÃ ĐẾN THỜI KHẮC ĐẶC BIỆT! 🎉
+                        </h2>
+                        <p style="text-align: center; font-size: 1.8rem; color: var(--pink-medium); margin: 20px 0;">
+                            Chúc mừng sinh nhật ${userName}!
+                        </p>
+                        <div style="text-align: center;">
+                            <div class="countdown-container">
+                                <div class="countdown-box" style="background: linear-gradient(145deg, #32CD32, #00FF7F);">
+                                    <div class="countdown-value">00</div>
+                                    <div class="countdown-label">Giờ</div>
+                                </div>
+                                <div class="countdown-box" style="background: linear-gradient(145deg, #32CD32, #00FF7F);">
+                                    <div class="countdown-value">00</div>
+                                    <div class="countdown-label">Phút</div>
+                                </div>
+                                <div class="countdown-box" style="background: linear-gradient(145deg, #32CD32, #00FF7F);">
+                                    <div class="countdown-value">00</div>
+                                    <div class="countdown-label">Giây</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-size: 1.2rem; color: var(--pink-dark); margin-top: 20px;">
+                            Đã đến lúc xem lại những kỷ niệm đẹp! 📸
+                        </p>
+                    `;
+                    
+                    // Hiệu ứng pháo hoa
+                    createFirework(Math.random() * window.innerWidth, Math.random() * window.innerHeight * 0.5);
+                    document.getElementById('fireworks-sound').play();
+                    
+                    // Sau 3 giây, chuyển sang ảnh kỉ niệm
+                    setTimeout(() => {
+                        countdownSection.classList.add('hidden');
+                        document.getElementById('image-showcase-section').classList.add('show');
+                        
+                        // Khởi tạo phần ảnh
+                        initImageShowcase();
+                        startImageShowcaseCountdown();
+                    }, 3000);
+                    
+                    return;
+                }
+                
+                updateCountdownDisplay(hours, minutes, seconds);
+            }, 1000);
+        }
+
+        function updateCountdownDisplay(hours, minutes, seconds) {
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // ==================== PHẦN ẢNH KỶ NIỆM - HIỆU ỨNG XOAY VÒNG ====================
+        function initImageShowcase() {
+            createParticles();
+            initCarousel();
+            initGridView();
+            initNavigation();
+            
+            // Event listener cho nút đổi hiệu ứng
+            document.getElementById('change-effect-btn').addEventListener('click', changeEffect);
+        }
+
+        // Tạo hiệu ứng particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('image-particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                const size = Math.random() * 3 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                const colors = ['#ff0066', '#ff66a3', '#ffcce6', '#ff3388'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Khởi tạo Carousel
+        function initCarousel() {
+            const carouselTrack = document.getElementById('carousel-track');
+            const carouselDots = document.getElementById('carousel-dots');
+            
+            carouselTrack.innerHTML = '';
+            carouselDots.innerHTML = '';
+            
+            imageData.forEach((image, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}" class="slide-image" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=${index + 1}'">
+                    <!-- Phần overlay đã bị ẩn bằng CSS -->
+                    <div class="slide-overlay">
+                        <h3 class="slide-title">${image.title}</h3>
+                        <p class="slide-desc">${image.desc}</p>
+                        <div class="slide-info">
+                            <span><i class="far fa-calendar"></i> ${image.date}</span>
+                            <span><i class="fas fa-expand"></i> Click để xem lớn</span>
+                        </div>
+                    </div>
+                `;
+                
+                slide.addEventListener('click', () => openImageModal(image.src, image.title, image.desc));
+                carouselTrack.appendChild(slide);
+                
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                carouselDots.appendChild(dot);
+            });
+            
+            document.getElementById('total-slides').textContent = imageData.length;
+            updateSlideCounter();
+            startAutoSlide();
+            
+            // Tự động xoay khi khởi tạo
+            setTimeout(() => {
+                createInitialRotation();
+            }, 1500);
+        }
+
+        // Hiệu ứng xoay vòng khi bắt đầu
+        function createInitialRotation() {
+            const track = document.getElementById('carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide');
+            
+            // Tạm thời thay đổi transition
+            track.style.transition = 'none';
+            
+            // Xếp các slide thành vòng tròn
+            slides.forEach((slide, index) => {
+                const angle = (index / slides.length) * Math.PI * 2;
+                const radius = 400;
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                
+                slide.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${angle}rad)`;
+                slide.style.opacity = '0.5';
+            });
+            
+            // Hiệu ứng xoay vào
+            setTimeout(() => {
+                track.style.transition = 'transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                
+                // Từ từ di chuyển về vị trí ban đầu
+                setTimeout(() => {
+                    track.style.transform = 'translateX(0)';
+                    
+                    slides.forEach((slide, index) => {
+                        slide.style.transform = 'translateX(0)';
+                        slide.style.opacity = index === 0 ? '1' : '0.7';
+                    });
+                    
+                    // Particle effect
+                    createIntroParticles();
+                    
+                    // Hiệu ứng cho slide đầu tiên
+                    slides[0].classList.add('slide-rotate-in');
+                    
+                    setTimeout(() => {
+                        slides[0].classList.remove('slide-rotate-in');
+                        track.style.transition = 'transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1)';
+                    }, 1000);
+                }, 100);
+            }, 100);
+        }
+
+        // Particle effect khi khởi tạo
+        function createIntroParticles() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createSpiralParticle(centerX, centerY);
+                }, i * 20);
+            }
+            
+            document.getElementById('magic-sound').play();
+        }
+
+        function createSpiralParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '10px';
+            particle.style.height = '10px';
+            particle.style.borderRadius = '50%';
+            particle.style.background = getRandomColor();
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '10000';
+            particle.style.boxShadow = '0 0 15px currentColor';
+            
+            document.body.appendChild(particle);
+            
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 300 + 100;
+            const duration = 1500;
+            const startTime = Date.now();
+            
+            function animate() {
+                const now = Date.now();
+                const progress = (now - startTime) / duration;
+                
+                if (progress < 1) {
+                    const currentDistance = distance * (1 - progress);
+                    const currentAngle = angle + progress * Math.PI * 4;
+                    const currentX = x + Math.cos(currentAngle) * currentDistance;
+                    const currentY = y + Math.sin(currentAngle) * currentDistance;
+                    const opacity = 1 - progress;
+                    const scale = 1 - progress * 0.8;
+                    
+                    particle.style.left = currentX + 'px';
+                    particle.style.top = currentY + 'px';
+                    particle.style.opacity = opacity;
+                    particle.style.transform = `scale(${scale}) rotate(${progress * 720}deg)`;
+                    
+                    requestAnimationFrame(animate);
+                } else {
+                    particle.remove();
+                }
+            }
+            
+            animate();
+        }
+
+        // Khởi tạo Grid View
+        function initGridView() {
+            const gridContainer = document.getElementById('grid-container');
+            
+            gridContainer.innerHTML = '';
+            
+            imageData.forEach((image, index) => {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+                gridItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=${index + 1}'">
+                    <!-- Phần overlay đã bị ẩn bằng CSS -->
+                    <div class="grid-overlay">
+                        <h3 class="grid-title">${image.title}</h3>
+                        <p class="grid-desc">${image.desc}</p>
+                    </div>
+                `;
+                
+                gridItem.addEventListener('click', () => openImageModal(image.src, image.title, image.desc));
+                gridContainer.appendChild(gridItem);
+            });
+        }
+
+        // Khởi tạo Navigation
+        function initNavigation() {
+            document.getElementById('prev-btn').addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+            
+            document.getElementById('next-btn').addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+            
+            document.getElementById('grid-view-btn').addEventListener('click', () => {
+                switchToGridView();
+            });
+            
+            document.getElementById('carousel-view-btn').addEventListener('click', () => {
+                switchToCarouselView();
+            });
+            
+            document.getElementById('auto-play-btn').addEventListener('click', () => {
+                toggleAutoPlay();
+            });
+        }
+
+        // ==================== HÀM ĐỔI HIỆU ỨNG ====================
+        function changeEffect() {
+            const currentIndex = effects.findIndex(effect => effect.name === currentEffect.name);
+            const nextIndex = (currentIndex + 1) % effects.length;
+            currentEffect = effects[nextIndex];
+            
+            showMessage(`Hiệu ứng: ${currentEffect.name} ✨`);
+            
+            // Hiệu ứng cho nút đổi
+            const btn = document.getElementById('change-effect-btn');
+            btn.innerHTML = `<i class="fas fa-random"></i> ${currentEffect.name}`;
+            btn.style.animation = 'none';
+            setTimeout(() => {
+                btn.style.animation = 'pulse 0.5s ease';
+            }, 10);
+        }
+
+        // ==================== CAROUSEL FUNCTIONS ====================
+        function goToSlide(index) {
+            if (isAnimating || isGridView) return;
+            isAnimating = true;
+            
+            const oldIndex = currentSlideIndex;
+            currentSlideIndex = index;
+            
+            // Áp dụng hiệu ứng biến mất cho slide cũ
+            const oldSlide = document.querySelectorAll('.carousel-slide')[oldIndex];
+            oldSlide.classList.add(currentEffect.out);
+            
+            // Tạo hiệu ứng particle
+            createSlideParticles(oldSlide, oldIndex < index ? 'right' : 'left');
+            
+            setTimeout(() => {
+                updateCarousel();
+                updateSlideCounter();
+                
+                // Áp dụng hiệu ứng xuất hiện cho slide mới
+                const newSlide = document.querySelectorAll('.carousel-slide')[currentSlideIndex];
+                newSlide.classList.add(currentEffect.in);
+                
+                setTimeout(() => {
+                    oldSlide.classList.remove(currentEffect.out);
+                    newSlide.classList.remove(currentEffect.in);
+                    isAnimating = false;
+                }, 800);
+            }, 400);
+        }
+
+        function nextSlide() {
+            if (isAnimating || isGridView) return;
+            
+            const oldIndex = currentSlideIndex;
+            currentSlideIndex = (currentSlideIndex + 1) % imageData.length;
+            
+            applySlideTransition(oldIndex, currentSlideIndex, 'right');
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            if (isAnimating || isGridView) return;
+            
+            const oldIndex = currentSlideIndex;
+            currentSlideIndex = (currentSlideIndex - 1 + imageData.length) % imageData.length;
+            
+            applySlideTransition(oldIndex, currentSlideIndex, 'left');
+            resetAutoSlide();
+        }
+
+        function applySlideTransition(oldIndex, newIndex, direction) {
+            isAnimating = true;
+            
+            const oldSlide = document.querySelectorAll('.carousel-slide')[oldIndex];
+            const newSlide = document.querySelectorAll('.carousel-slide')[newIndex];
+            
+            // Áp dụng hiệu ứng biến mất
+            oldSlide.classList.add(currentEffect.out);
+            
+            // Tạo hiệu ứng particle theo hướng
+            createSlideParticles(oldSlide, direction);
+            
+            setTimeout(() => {
+                updateCarousel();
+                updateSlideCounter();
+                
+                // Áp dụng hiệu ứng xuất hiện
+                newSlide.classList.add(currentEffect.in);
+                
+                // Phát âm thanh
+                document.getElementById('magic-sound').play();
+                
+                setTimeout(() => {
+                    oldSlide.classList.remove(currentEffect.out);
+                    newSlide.classList.remove(currentEffect.in);
+                    isAnimating = false;
+                }, 800);
+            }, 400);
+        }
+
+        function createSlideParticles(slide, direction) {
+            const rect = slide.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    createDirectionalParticle(centerX, centerY, direction, i);
+                }, i * 20);
+            }
+        }
+
+        function createDirectionalParticle(x, y, direction, index) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '8px';
+            particle.style.height = '8px';
+            particle.style.borderRadius = '50%';
+            particle.style.background = getRandomColor();
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '10000';
+            particle.style.boxShadow = '0 0 10px currentColor';
+            
+            document.body.appendChild(particle);
+            
+            let startX = x;
+            let targetX, targetY;
+            const distance = 200;
+            
+            if (direction === 'right') {
+                targetX = x + distance;
+                targetY = y + (Math.random() - 0.5) * 100;
+            } else {
+                targetX = x - distance;
+                targetY = y + (Math.random() - 0.5) * 100;
+            }
+            
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 3 + 2;
+            const duration = 800;
+            const startTime = Date.now();
+            
+            function animate() {
+                const now = Date.now();
+                const progress = (now - startTime) / duration;
+                
+                if (progress < 1) {
+                    const currentX = startX + (targetX - startX) * progress;
+                    const currentY = y + Math.sin(progress * Math.PI * 2) * 100;
+                    const opacity = 1 - progress;
+                    const scale = 1 - progress * 0.7;
+                    const rotation = progress * 360;
+                    
+                    particle.style.left = currentX + 'px';
+                    particle.style.top = currentY + 'px';
+                    particle.style.opacity = opacity;
+                    particle.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+                    
+                    requestAnimationFrame(animate);
+                } else {
+                    particle.remove();
+                }
+            }
+            
+            animate();
+        }
+
+        function updateCarousel() {
+            const carouselTrack = document.getElementById('carousel-track');
+            const dots = document.querySelectorAll('.dot');
+            
+            carouselTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+            
+            // Cập nhật trạng thái slide
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides.forEach((slide, index) => {
+                // Xóa tất cả class hiệu ứng
+                slide.classList.remove('slide-rotate-in', 'slide-rotate-out', 
+                                    'slide-spiral-in', 'slide-spiral-out',
+                                    'slide-fade-ltr', 'slide-fade-rtl',
+                                    'slide-in-right', 'slide-in-left',
+                                    'slide-wheel-in', 'slide-wheel-out',
+                                    'slide-wave-in', 'slide-wave-out');
+                
+                if (index === currentSlideIndex) {
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '1';
+                } else {
+                    slide.style.opacity = '0.7';
+                    slide.style.zIndex = '0';
+                }
+            });
+        }
+
+        function updateSlideCounter() {
+            document.getElementById('current-slide').textContent = currentSlideIndex + 1;
+        }
+
+        // ==================== AUTO SLIDE FUNCTIONS ====================
+        function startAutoSlide() {
+            if (!isAutoPlay || isGridView) return;
+            
+            slideTimer = 0;
+            updateProgressBar();
+            
+            autoSlideInterval = setInterval(() => {
+                slideTimer += 0.1;
+                updateProgressBar();
+                
+                if (slideTimer >= slideChangeTime) {
+                    nextSlide();
+                    slideTimer = 0;
+                }
+            }, 100);
+        }
+
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = null;
+            }
+        }
+
+        function resetAutoSlide() {
+            if (!isAutoPlay) return;
+            
+            slideTimer = 0;
+            updateProgressBar();
+            
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+        }
+
+        function toggleAutoPlay() {
+            const autoPlayBtn = document.getElementById('auto-play-btn');
+            const icon = autoPlayBtn.querySelector('i');
+            
+            if (isAutoPlay) {
+                stopAutoSlide();
+                autoPlayBtn.innerHTML = '<i class="fas fa-play"></i> Tiếp Tục Trình Chiếu';
+                isAutoPlay = false;
+            } else {
+                startAutoSlide();
+                autoPlayBtn.innerHTML = '<i class="fas fa-pause"></i> Tạm Dừng Trình Chiếu';
+                isAutoPlay = true;
+            }
+        }
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = (slideTimer / slideChangeTime) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+        }
+
+        function resetProgressBar() {
+            slideTimer = 0;
+            updateProgressBar();
+        }
+
+        // ==================== VIEW TOGGLE FUNCTIONS ====================
+        function switchToGridView() {
+            isGridView = true;
+            stopAutoSlide();
+            
+            document.getElementById('carousel-container').style.display = 'none';
+            document.getElementById('grid-container').classList.add('active');
+            document.getElementById('grid-view-btn').style.display = 'none';
+            document.getElementById('carousel-view-btn').style.display = 'flex';
+            document.getElementById('auto-play-btn').innerHTML = '<i class="fas fa-play"></i> Bật Trình Chiếu';
+        }
+
+        function switchToCarouselView() {
+            isGridView = false;
+            
+            document.getElementById('carousel-container').style.display = 'block';
+            document.getElementById('grid-container').classList.remove('active');
+            document.getElementById('grid-view-btn').style.display = 'flex';
+            document.getElementById('carousel-view-btn').style.display = 'none';
+            
+            if (isAutoPlay) {
+                startAutoSlide();
+                document.getElementById('auto-play-btn').innerHTML = '<i class="fas fa-pause"></i> Tạm Dừng Trình Chiếu';
+            }
+        }
+
+        // ==================== ĐẾM NGƯỢC TỰ ĐỘNG ====================
+        function startImageShowcaseCountdown() {
+            imageShowcaseTimer = totalAutoTime;
+            const countdownTimer = document.getElementById('countdown-timer');
+            
+            if (imageCountdownInterval) {
+                clearInterval(imageCountdownInterval);
+            }
+            
+            imageCountdownInterval = setInterval(() => {
+                imageShowcaseTimer--;
+                countdownTimer.textContent = imageShowcaseTimer;
+                
+                if (imageShowcaseTimer <= 0) {
+                    clearInterval(imageCountdownInterval);
+                    stopAutoSlide();
+                    
+                    createFullScreenTransition();
+                    
+                    setTimeout(() => {
+                        document.getElementById('image-showcase-section').classList.remove('show');
+                        document.getElementById('cake-section').classList.add('show');
+                        
+                        const cakeImg = document.getElementById('real-cake');
+                        cakeImg.style.animation = 'pulse 2s infinite';
+                    }, 1000);
+                }
+            }, 1000);
+        }
+
+        function createFullScreenTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'linear-gradient(135deg, var(--pink-dark), var(--pink-medium))';
+            overlay.style.zIndex = '10000';
+            overlay.style.display = 'flex';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            overlay.style.opacity = '0';
+            overlay.style.transition = 'opacity 0.5s ease';
+            
+            overlay.innerHTML = `
+                <div style="text-align: center; color: white; padding: 40px;">
+                    <h1 style="font-family: 'Pacifico', cursive; font-size: 4rem; margin-bottom: 20px;">
+                        🎂 Đến Lúc Thổi Nến! 🎂
+                    </h1>
+                    <p style="font-size: 2rem; font-family: 'Dancing Script', cursive;">
+                        Chuyển sang bánh sinh nhật đặc biệt!
+                    </p>
+                    <div style="margin-top: 30px; font-size: 5rem;">
+                        🎉✨🎁
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 10);
+            
+            document.getElementById('magic-sound').play();
+            
+            setTimeout(() => {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.remove();
+                }, 500);
+            }, 1000);
+        }
+
+        // ==================== MODAL IMAGE VIEWER ====================
+        function initializeModal() {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('image-caption');
+            const closeModal = document.getElementById('close-modal');
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalFunc();
+                }
+            });
+            
+            closeModal.addEventListener('click', closeModalFunc);
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModalFunc();
+                }
+            });
+            
+            function closeModalFunc() {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modalImage.src = '';
+                    modalCaption.textContent = '';
+                }, 500);
+            }
+        }
+
+        function openImageModal(src, title, description) {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('image-caption');
+            
+            modalImage.src = src;
+            modalCaption.innerHTML = `
+                <strong style="font-size: 1.8rem; display: block; margin-bottom: 10px;">${title}</strong>
+                <span style="font-size: 1.2rem;">${description}</span>
+            `;
+            
+            modal.classList.add('active');
+            
+            stopAutoSlide();
+            
+            createImageClickEffect();
+        }
+
+        function createImageClickEffect() {
+            const modal = document.getElementById('image-modal');
+            const rect = modal.getBoundingClientRect();
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const x = rect.left + Math.random() * rect.width;
+                    const y = rect.top + Math.random() * rect.height;
+                    createModalParticle(x, y);
+                }, i * 30);
+            }
+        }
+
+        function createModalParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '8px';
+            particle.style.height = '8px';
+            particle.style.borderRadius = '50%';
+            particle.style.background = '#fff';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '10001';
+            particle.style.boxShadow = '0 0 10px #fff';
+            
+            document.body.appendChild(particle);
+            
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 3 + 1;
+            const vx = Math.cos(angle) * speed;
+            const vy = Math.sin(angle) * speed;
+            
+            let opacity = 1;
+            
+            function animate() {
+                x += vx;
+                y += vy;
+                opacity -= 0.02;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.opacity = opacity;
+                particle.style.transform = `scale(${opacity})`;
+                
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    particle.remove();
+                }
+            }
+            
+            animate();
+        }
+
+        // ==================== BÁNH SINH NHẬT ====================
+        function initializeCakeSection() {
+            const realCake = document.getElementById('real-cake');
+            
+            if (realCake) {
+                realCake.addEventListener('click', function() {
+                    createCandleEffect();
+                    document.getElementById('candle-blow-sound').play();
+                    
+                    this.style.filter = 'brightness(1.2)';
+                    this.style.boxShadow = '0 0 50px rgba(255, 215, 0, 0.7)';
+                    
+                    // Tự động chuyển sang phần quả cầu ước nguyện sau 3 giây
+                    setTimeout(() => {
+                        createConfettiEffect();
+                        document.getElementById('confetti-sound').play();
+                        
+                        showMessage(`Chúc mừng ${userName}! Điều ước của bạn sẽ thành hiện thực! ✨`);
+                        
+                        // Chuyển sang phần quả cầu ước nguyện sau 2 giây nữa
+                        setTimeout(() => {
+                            document.getElementById('cake-section').classList.remove('show');
+                            document.getElementById('wish-section').classList.add('show');
+                        }, 2000);
+                    }, 1000);
+                });
+            }
+        }
+
+        function createCandleEffect() {
+            const realCake = document.getElementById('real-cake');
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createFlameParticle(
+                        realCake.getBoundingClientRect().left + Math.random() * realCake.width,
+                        realCake.getBoundingClientRect().top + Math.random() * 50
+                    );
+                }, i * 200);
+            }
+        }
+
+        function createFlameParticle(x, y) {
+            const flame = document.createElement('div');
+            flame.style.position = 'fixed';
+            flame.style.left = x + 'px';
+            flame.style.top = y + 'px';
+            flame.style.width = '15px';
+            flame.style.height = '25px';
+            flame.style.background = 'radial-gradient(ellipse at center, #ffcc00 0%, #ff6600 70%, transparent 100%)';
+            flame.style.borderRadius = '50% 50% 20% 20%';
+            flame.style.pointerEvents = 'none';
+            flame.style.zIndex = '1000';
+            flame.style.boxShadow = '0 0 20px #ff9900';
+            
+            document.body.appendChild(flame);
+            
+            let opacity = 1;
+            let size = 1;
+            
+            function animate() {
+                opacity -= 0.05;
+                size -= 0.02;
+                
+                flame.style.opacity = opacity;
+                flame.style.transform = `scale(${size})`;
+                
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    flame.remove();
+                }
+            }
+            
+            animate();
+        }
+
+        // ==================== QUẢ CẦU ƯỚC NGUYỆN ====================
+        function initializeWishBall() {
+            const wishBall = document.getElementById('wish-ball');
+            const wishText = document.getElementById('wish-text');
+            const nextAfterWishBtn = document.getElementById('next-after-wish');
+            
+            wishBall.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+                
+                document.getElementById('magic-sound').play();
+                
+                createMagicParticles(this.getBoundingClientRect().left + 125, 
+                                   this.getBoundingClientRect().top + 125);
+                
+                wishText.style.display = 'block';
+                wishText.style.animation = 'fadeIn 1s ease-out';
+                wishText.innerHTML = `Điều ước của ${userName} đã được ghi nhận!<br>Nó sẽ sớm thành hiện thực! ✨`;
+                
+                setTimeout(() => {
+                    nextAfterWishBtn.style.display = 'inline-block';
+                    nextAfterWishBtn.style.animation = 'fadeIn 1s ease-out';
+                }, 2000);
+            });
+            
+            if (nextAfterWishBtn) {
+                nextAfterWishBtn.addEventListener('click', function() {
+                    document.getElementById('wish-section').classList.remove('show');
+                    document.getElementById('time-capsule-section').classList.add('show');
+                    
+                    createConfettiEffect();
+                    document.getElementById('confetti-sound').play();
+                });
+            }
+        }
+
+        // ==================== TIME CAPSULE ====================
+        function initializeTimeCapsule() {
+            const timeCapsule = document.getElementById('time-capsule');
+            const capsuleLock = document.getElementById('capsule-lock');
+            const wishMessages = document.getElementById('wish-messages');
+            
+            const generateWishes = () => {
+                const wishes = [
+                    `Chúc ${userName} có một ngày sinh nhật thật tuyệt vời, tràn ngập niềm vui và tiếng cười! 🎉`,
+                    `Mong rằng mọi điều tốt đẹp nhất sẽ đến với bạn trong tuổi mới này! ✨`,
+                    `Chúc bạn luôn khỏe mạnh, hạnh phúc và thành công trong mọi lĩnh vực! 💪`,
+                    `Hãy luôn giữ nụ cười trên môi và trái tim tràn đầy nhiệt huyết nhé! 😊`,
+                    `Mong rằng năm tới sẽ mang đến cho bạn thật nhiều cơ hội và thành công rực rỡ! ⭐`,
+                    `Chúc bạn có thật nhiều năng lượng tích cực để theo đuổi đam mê của mình! 🔥`,
+                    `Hãy luôn là chính mình và tỏa sáng theo cách của riêng bạn! 🌟`,
+                    `Chúc bạn tìm thấy niềm vui trong từng khoảnh khắc của cuộc sống! 🎈`,
+                    `Mong rằng mọi ước mơ của bạn đều sẽ trở thành hiện thực! 💫`,
+                    `Chúc bạn luôn được yêu thương, trân trọng và hạnh phúc! ❤️`
+                ];
+                
+                let selectedWishes = [];
+                while (selectedWishes.length < 5) {
+                    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+                    if (!selectedWishes.includes(randomWish)) {
+                        selectedWishes.push(randomWish);
+                    }
+                }
+                
+                selectedWishes.forEach(wish => {
+                    const wishElement = document.createElement('p');
+                    wishElement.innerHTML = `🎁 ${wish}`;
+                    wishElement.style.marginBottom = '10px';
+                    wishElement.style.padding = '10px';
+                    wishElement.style.background = 'rgba(255,255,255,0.1)';
+                    wishElement.style.borderRadius = '5px';
+                    wishMessages.appendChild(wishElement);
+                });
+            };
+            
+            generateWishes();
+            
+            timeCapsule.addEventListener('click', function() {
+                capsuleLock.style.transform = 'translate(-50%, -50%) scale(0)';
+                capsuleLock.style.opacity = '0';
+                
+                const capsuleLid = document.querySelector('.capsule-lid');
+                capsuleLid.style.transform = 'translateX(-50%) translateY(-100px)';
+                capsuleLid.style.opacity = '0.5';
+                
+                document.getElementById('magic-sound').play();
+                
+                createMagicParticles(
+                    this.getBoundingClientRect().left + this.offsetWidth / 2,
+                    this.getBoundingClientRect().top + this.offsetHeight / 2
+                );
+                
+                setTimeout(() => {
+                    showMessage(`Những lời chúc đặc biệt đã được gửi đến ${userName}! 💌`);
+                    
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => {
+                            createFirework(
+                                Math.random() * window.innerWidth,
+                                Math.random() * window.innerHeight * 0.7
+                            );
+                        }, i * 300);
+                    }
+                    
+                    document.getElementById('fireworks-sound').play();
+                }, 1000);
+            });
+        }
+
+        // ==================== HIỆU ỨNG HỖ TRỢ ====================
+        function createMagicParticles(x, y) {
+            for (let i = 0; i < 30; i++) {
+                createParticle(x, y);
+            }
+        }
+
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '10px';
+            particle.style.height = '10px';
+            particle.style.backgroundColor = getRandomColor();
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            
+            document.body.appendChild(particle);
+            
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 5 + 2;
+            const vx = Math.cos(angle) * speed;
+            const vy = Math.sin(angle) * speed;
+            
+            let opacity = 1;
+            
+            function animate() {
+                x += vx;
+                y += vy;
+                opacity -= 0.02;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.opacity = opacity;
+                
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    particle.remove();
+                }
+            }
+            
+            animate();
+        }
+
+        function getRandomColor() {
+            const colors = [
+                '#ff00ff', '#00ffff', '#ffff00', '#00ff00',
+                '#ff0066', '#00ccff', '#ff9900', '#cc00ff'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function createConfettiEffect() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 50);
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            
+            const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💖', '💗', '💓', '💞', '💕', '💘'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 40 + 20) + 'px';
+            
+            const duration = Math.random() * 4 + 2;
+            heart.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        // ==================== PHÁO HOA ====================
+        const fireworksCanvas = document.getElementById('fireworks-canvas');
+        if (fireworksCanvas) {
+            const fireworksCtx = fireworksCanvas.getContext('2d');
+            
+            function resizeFireworksCanvas() {
+                fireworksCanvas.width = window.innerWidth;
+                fireworksCanvas.height = window.innerHeight;
+            }
+            
+            window.addEventListener('resize', resizeFireworksCanvas);
+            resizeFireworksCanvas();
+            
+            class Particle {
+                constructor(x, y, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.velocity = {
+                        x: (Math.random() - 0.5) * 10,
+                        y: (Math.random() - 0.5) * 10
+                    };
+                    this.alpha = 1;
+                    this.decay = Math.random() * 0.02 + 0.01;
+                    this.size = Math.random() * 3 + 1;
+                }
+                
+                update() {
+                    this.velocity.y += 0.05;
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+                    this.alpha -= this.decay;
+                }
+                
+                draw() {
+                    fireworksCtx.globalAlpha = this.alpha;
+                    fireworksCtx.fillStyle = this.color;
+                    fireworksCtx.beginPath();
+                    fireworksCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    fireworksCtx.fill();
+                }
+            }
+            
+            let particles = [];
+            const fireworkColors = ['#ff0066', '#ff66a3', '#ffcc00', '#00ccff', '#9966ff', '#32CD32'];
+            
+            function createFirework(x, y) {
+
+                const particleCount = 150;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle(x, y, color));
+                }
+                
+                document.getElementById('fireworks-sound').currentTime = 0;
+                document.getElementById('fireworks-sound').play();
+            }
+            
+            function animateFireworks() {
+                fireworksCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                fireworksCtx.fillRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    if (particles[i].alpha <= 0) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+                
+                requestAnimationFrame(animateFireworks);
+            }
+            
+            animateFireworks();
+        }
+
+        // ==================== THÔNG BÁO ====================
+        function showMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.top = '20px';
+            messageDiv.style.left = '50%';
+            messageDiv.style.transform = 'translateX(-50%)';
+            messageDiv.style.background = 'rgba(255, 255, 255, 0.95)';
+            messageDiv.style.padding = '15px 30px';
+            messageDiv.style.borderRadius = '50px';
+            messageDiv.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            messageDiv.style.zIndex = '1000';
+            messageDiv.style.textAlign = 'center';
+            messageDiv.style.fontSize = '1.2rem';
+            messageDiv.style.color = 'var(--pink-dark)';
+            messageDiv.style.fontFamily = "'Dancing Script', cursive";
+            messageDiv.style.border = '2px solid var(--pink-medium)';
+            messageDiv.textContent = text;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                messageDiv.style.transform = 'translateX(-50%) translateY(-20px)';
+                messageDiv.style.transition = 'all 0.5s';
+                
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 500);
+            }, 3000);
+        }
+
+        // ==================== RESIZE HANDLER ====================
+        window.addEventListener('resize', function() {
+                         const color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];   const canvas = document.getElementById('fireworks-canvas');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+</body>
+</html>
